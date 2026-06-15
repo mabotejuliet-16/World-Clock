@@ -20,6 +20,9 @@ setInterval(function () {
 
 function updateCity(event) {
   let cityTimeZone = event.target.value;
+  if (cityTimeZone === "Current") {
+    cityTimeZone = moment.tz.guess();
+  }
   let cityName = cityTimeZone.split("/")[1];
   let cityTime = moment().tz(cityTimeZone);
   let citiesElement = document.querySelector("#cities");
@@ -33,7 +36,8 @@ function updateCity(event) {
       "A",
     )}</small></div>
   </div>
-  `;
+  
+  <a href="/">Back to home</a>`;
 }
 
 let citiesSelectElement = document.querySelector("#african-cities");
